@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class RomanToInt {
 
-    public static Map<String,String> map = new HashMap<>();
+    public static final Map<String,String> map = new HashMap<>();
     static {
        map.put("IV","a");
        map.put("IX","b");
