@@ -1,6 +1,5 @@
 package com.stu.leetcode.dsl.easy;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,17 +13,8 @@ import java.util.Map;
  */
 public class RomanToInt {
 
-    public static final Map<String,String> map = new HashMap<>();
-    static {
-       map.put("IV","a");
-       map.put("IX","b");
-       map.put("XL","c");
-       map.put("XC","d");
-       map.put("CD","e");
-       map.put("CM","f");
-    }
     public static void main(String[] args) {
-        String s = "MV";
+        String s = "MCMXCIV";
         int toInt = romanToInt(s);
         System.out.println(toInt);
     }
@@ -32,20 +22,24 @@ public class RomanToInt {
     public static int romanToInt(String s) {
         long begin = System.currentTimeMillis();
 
-        String s1 = map.get(s);
-        if(null != s1){
-            s=s1;
+        int sum = 0;
+        int preNum = getValue(s.charAt(0));
+        for(int i = 1;i < s.length(); i ++) {
+            int num = getValue(s.charAt(i));
+            if(preNum < num) {
+                sum -= preNum;
+            } else {
+                sum += preNum;
+            }
+            preNum = num;
         }
-        int result = 0;
-        for (int i=0; i<s.length(); i++) {
-            result += which(s.charAt(i));
-        }
+        sum += preNum;
         long end = System.currentTimeMillis();
         System.out.println("测试1耗时："+ String.valueOf(end-begin));
-        return result;
+        return sum;
     }
 
-    public static int which(char ch) {
+    private static int getValue(char ch) {
         switch(ch) {
             case 'I': return 1;
             case 'V': return 5;
@@ -54,13 +48,8 @@ public class RomanToInt {
             case 'C': return 100;
             case 'D': return 500;
             case 'M': return 1000;
-            case 'a': return 4;
-            case 'b': return 9;
-            case 'c': return 40;
-            case 'd': return 90;
-            case 'e': return 400;
-            case 'f': return 900;
+            default: return 0;
         }
-        return 0;
     }
+
 }
