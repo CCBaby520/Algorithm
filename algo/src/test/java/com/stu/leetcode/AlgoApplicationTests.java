@@ -1,4 +1,4 @@
-package com.leetcode.algo;
+package com.stu.leetcode;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
