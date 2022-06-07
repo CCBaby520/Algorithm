@@ -1,5 +1,9 @@
 package com.stu.leetcode.dsl.easy;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 罗马数字转整数
  * @desc: 罗马数字由 I,V,X,L,C,D,M 构成；
@@ -10,24 +14,34 @@ package com.stu.leetcode.dsl.easy;
  */
 public class RomanToInt {
 
+    public static Map<String,String> map = new HashMap<>();
+    static {
+       map.put("IV","a");
+       map.put("IX","b");
+       map.put("XL","c");
+       map.put("XC","d");
+       map.put("CD","e");
+       map.put("CM","f");
+    }
     public static void main(String[] args) {
-        String s = "IV";
+        String s = "MV";
         int toInt = romanToInt(s);
         System.out.println(toInt);
     }
 
     public static int romanToInt(String s) {
-        s = s.replace("IV","a");
-        s = s.replace("IX","b");
-        s = s.replace("XL","c");
-        s = s.replace("XC","d");
-        s = s.replace("CD","e");
-        s = s.replace("CM","f");
+        long begin = System.currentTimeMillis();
 
+        String s1 = map.get(s);
+        if(null != s1){
+            s=s1;
+        }
         int result = 0;
         for (int i=0; i<s.length(); i++) {
             result += which(s.charAt(i));
         }
+        long end = System.currentTimeMillis();
+        System.out.println("测试1耗时："+ String.valueOf(end-begin));
         return result;
     }
 
