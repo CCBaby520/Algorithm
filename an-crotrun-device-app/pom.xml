@@ -5,21 +5,21 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.0-SNAPSHOT</version>
+		<version>3.2.2-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.amway</groupId>
-	<artifactId>dependencies</artifactId>
+	<groupId>com.amway.an.crotrun.device.app</groupId>
+	<artifactId>an-crotrun-device-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dependencies</name>
-	<description>所有jar包的依赖</description>
+	<name>an-crotrun-device.app</name>
+	<description>Spring Boot 3.2</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
 		<dependency>
@@ -29,14 +29,8 @@
 		</dependency>
 	</dependencies>
 
-
-
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.graalvm.buildtools</groupId>
-				<artifactId>native-maven-plugin</artifactId>
-			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
